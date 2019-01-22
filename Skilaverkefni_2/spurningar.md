@@ -1,4 +1,4 @@
-# Skilaverkefni 2
+# Skilaverkefni 2 SPURNINGAR
 
 ### 1. Hvað er sauðakóði (pseuodocode) og til hvers er hann notaður?
   - Sauðakóði er lýsing sem fer ítarlega í hvernig forritið virkar og gerir. Tilgangur sauðakóða er til að 'hanna' kóða, þannig maður getur forritað forritið í hvaða forritunartungumál sem er. Sauðakóði er ekki notað aðeins í forritun, þú getur notað sauðakóða í hvað sem  er.
