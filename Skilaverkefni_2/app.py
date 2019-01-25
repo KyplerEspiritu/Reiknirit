@@ -11,7 +11,6 @@ def runa(n):
         runa(n-1)
         print(str((n**2 + n)//2), end=" ")
 
-
 def thversumma(n):
     if not n:
         return 0
