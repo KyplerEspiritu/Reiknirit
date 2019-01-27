@@ -1,8 +1,7 @@
 def summa(m):
-    if m == 1:
-        return 1
-    else:
-        return m * summa(m-1)
+    if m == 0:
+        return 0
+    return m**2 + summa(m-1)
 
 def runa(n):
     if n == 1:
