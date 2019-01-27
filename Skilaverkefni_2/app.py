@@ -25,7 +25,7 @@ def samnefnari(n, m):
 
 print()
 print("Spurning 3")
-print(summa(5)) # 5 * 4 * 3 * 2 * 1
+print(summa(5)) 
 
 print()
 print("Spurning 4")
