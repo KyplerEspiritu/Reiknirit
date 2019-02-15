@@ -5,4 +5,4 @@
 Reikniritið er kallað Counting Sort.
 
 1c.
-Flækjustigið er O(log(n)).
+Flækjustigið er O(n+k).
