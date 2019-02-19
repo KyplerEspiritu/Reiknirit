@@ -6,3 +6,8 @@ Reikniritið er kallað Counting Sort.
 
 1c.
 Flækjustigið er O(n+k).
+
+4a.
+
+
+4b
