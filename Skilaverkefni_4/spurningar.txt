@@ -1,5 +1,5 @@
 1a.
-Þetta fall raðar listanum eftir stærð.
+Þetta fall raðar lista eftir stærð.
 
 1b.
 Reikniritið er kallað Counting Sort.
