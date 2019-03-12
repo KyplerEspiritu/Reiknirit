@@ -13,7 +13,10 @@ class Vigur:
         if self.head == 0:
             print("[{} {}]".format(self.x, self.y))
         elif self.head == 1:
-            print("[-{} {}]".format(self.y, self.x))
+            if self.y < 0:
+                print("[{} {}]".format(abs(self.y), self.x))
+            else:
+                print("[-{} {}]".format(self.y, self.x))
             
 
     # Fall sem skilar lengd
@@ -37,13 +40,19 @@ class Vigur:
     # Fall sem skilar stefnuhorni
     def stefnuhorn(self):  
         stefnuhorn = float("{0:.1f}".format(math.degrees(math.atan(self.y/self.x))))
-        return stefnuhorn
+        if self.y < 0 and self.x < 0:
+            return -abs(360-(180+stefnuhorn))
+        elif (self.y > 0 and self.x > 0) or (self.x > 0 and self.y < 0):
+            return stefnuhorn
+        elif self.x < 0 and self.y > 0:
+            return 180-abs(stefnuhorn)
         
     # Fall sem tekur vigur sem parameter og skilar horni milli vigra
     def horn(self,v):
-        cos_v = (self.x * v.x) + (self.y * v.y) / math.sqrt(self.x**2 + self.y**2) * math.sqrt(v.x**2 + v.y**2)
-        horn_milli_vigra = math.degrees(math.acos(cos_v))
-        return horn_milli_vigra
+        teljari = (self.x * v.x) + (self.y * v.y)
+        nefnari = self.lengd() * v.lengd()
+        horn_milli_vigra = math.degrees(math.acos(teljari/nefnari))
+        return round(horn_milli_vigra, 2)
         
     # Fall sem tekur vigur sem parameter og skilar summu vigri
     def summa(self,v):
@@ -53,7 +62,7 @@ class Vigur:
         return self
 
 # Keyrsluforrit
-v1 = Vigur(1,3)
+v1 = Vigur(1, 3)
 v1.prenta()
 print("Lengd: ", v1.lengd())
 print("Halli: ", v1.halli())
