@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lokaverkefni</title>
+		<link rel="stylesheet" type="text/css" href="index.css">
+	</head>
+	<body>
+
+		<div class="inputCoordinates">
+			Fyrsti Vigur X<br>
+			<input type="number" id="firstVigurX"><p>
+			Fyrsti Vigur Y<br>
+			<input type="number" id="firstVigurY"><p>
+			Annar Vigur X<br>
+			<input type="number" id="secondVigurX"><p>
+			Annar Vigur Y<br>
+			<input type="number" id="secondVigurY"><p>
+
+			<button type="submit" onclick="drawVigurs()">ENTER</button>
+		</div>
+
+		<canvas id="myCanvas" width="700" height="700" style="border:1px solid #bababa;padding-left: 0;padding-right: 0;margin-left: auto;margin-right: auto;display: block;"></canvas>
+		<script src="canvas.js"></script>
+	</body>
+</html>

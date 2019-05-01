@@ -62,7 +62,7 @@ class Vigur:
         return self
 
 # Keyrsluforrit
-v1 = Vigur(1, 3)
+v1 = Vigur(-3, 1)
 v1.prenta()
 print("Lengd: ", v1.lengd())
 print("Halli: ", v1.halli())
@@ -70,7 +70,7 @@ vþ = v1.þvervigur()
 print("Þvervigur: " , end=" ")
 vþ.prenta()
 print("Stefnuhorn: ", v1.stefnuhorn())
-v2 = Vigur(-3,1)
+v2 = Vigur(2, -2)
 print("Horn milli vigra: " , v2.horn(v1))
 v3 = v1.summa(v2)
 print("Summa: " , end=" ")

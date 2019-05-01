@@ -1,0 +1,16 @@
+body{
+	background: #212121;
+	color: #ffffff;
+}
+input{
+	padding: 5px;
+	background: #212121;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+}
+.inputCoordinates{
+	font-family: Arial;
+	position: fixed;
+	left: 125px;
+	top: 200px;
+}
