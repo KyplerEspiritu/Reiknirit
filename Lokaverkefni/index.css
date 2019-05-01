@@ -1,6 +1,7 @@
 body{
 	background: #212121;
 	color: #ffffff;
+	font-family: Arial;
 }
 input{
 	padding: 5px;
@@ -9,8 +10,25 @@ input{
 	border: 1px solid #ffffff;
 }
 .inputCoordinates{
-	font-family: Arial;
 	position: fixed;
 	left: 125px;
 	top: 200px;
+}
+#firstVigurStyleX, #firstVigurStyleY{
+	color: rgb(84, 255, 0);
+}
+#annarVigurStyleX, #annarVigurStyleY{
+	color: rgb(255, 0, 225);
+}
+.table{
+	position: fixed;
+	left: 1175px;
+	top: 200px;
+}
+table{
+	border-collapse: collapse;
+}
+th{
+	padding: 10px;
+	border: 1px solid #ffffff;
 }

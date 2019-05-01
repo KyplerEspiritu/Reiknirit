@@ -5,6 +5,7 @@ var height = canvas.height;
 
 class Vigur { 
   constructor(x, y){
+  	this.head = 0;
     this.x = x;
     this.y = y;
   }
@@ -16,6 +17,22 @@ class Vigur {
   getY(){
   	return this.y;
   }
+
+  prenta(){
+    var stringPoints;
+    if(this.head == 0){
+      stringPoints = "[" + this.x + " " + this.y + "]";
+      return stringPoints;
+    }else if(this.head == 1){
+      if(this.y < 0){ 
+        stringPoints = "[" + Math.abs(this.y) + " " + this.x + "]";
+        return stringPoints;
+      } else { 
+        stringPoints = "[-" + this.y + " " + this.x + "]";
+        return stringPoints;
+      }
+    }
+  }
   
   lengd(){
     var lengd_c_veldi = Math.pow(this.x, 2) + Math.pow(this.y, 2);
@@ -24,11 +41,31 @@ class Vigur {
   }
   
   halli(){
-    if (this.x != 0) { return this.y/this.x; }
-    else { return "Enginn halltala"; }
+    if (this.x != 0) { return (this.y/this.x).toFixed(2); }
+    else { return "Enginn"; }
+  }
+
+  thvervigur(){
+    this.head = 1;
+    return this;
   }
   
   stefnuhorn(){
+  	if(this.x == 0) { 
+  		var stefnuhorn = Math.atan(this.y/0.001) * 180/Math.PI;
+  	} else {
+  		var stefnuhorn = Math.atan(this.y/this.x) * 180/Math.PI;
+  	}
+    var stefnuhorn_rounded = Math.round(stefnuhorn * 10) / 10;
+    if (this.y < 0 && this.x < 0){ return -Math.abs(360-(180+stefnuhorn_rounded)); } // (-,-)
+    else if (this.y >= 0 && this.x < 0) { return 180-Math.abs(stefnuhorn_rounded); } // (-,+)
+    else if (this.y > 0 && this.x >= 0) { return stefnuhorn_rounded; } // (+,+)
+    else if (this.y < 0 && this.x >= 0){ return stefnuhorn_rounded; } // (+,-)
+    else if (this.y == 0) { return 0; }
+
+  }
+
+  stefnuhornCanvas(){
     var stefnuhorn = Math.atan(this.y/this.x) * 180/Math.PI;
     var stefnuhorn_rounded = Math.round(stefnuhorn * 10) / 10;
     return stefnuhorn_rounded;
@@ -40,8 +77,13 @@ class Vigur {
     var horn_milli_vigra = Math.acos(teljari/nefnari) * 180/Math.PI;
     return horn_milli_vigra.toFixed(1);
   }
-}
 
+  summa(v){
+    var summaX = parseInt(this.x) + parseInt(v.x);
+    var summaY = parseInt(this.y) + parseInt(v.y);
+    return "[" + summaX + " " + summaY + "]";
+  }
+}
 function getPoint(c1,c2,radius,angle){
     return [c1+Math.cos(angle)*radius,c2+Math.sin(angle)*radius];
 }
@@ -129,8 +171,15 @@ function drawVigurs(){
 	var secondVigurY = document.getElementById('secondVigurY').value;
 
 	var v1 = new Vigur(firstVigurX, firstVigurY);
+	var vthvervigur = v1.thvervigur();
 
-	var stefnuhornFirstVigur = v1.stefnuhorn();
+	document.getElementById("firstCoordinates").innerHTML = "[" + v1.getX() +  " " + v1.getY() + "]";
+	document.getElementById("firstLengd").innerHTML = v1.lengd();
+	document.getElementById("firstHalli").innerHTML = v1.halli();
+	document.getElementById("firstThvervigur").innerHTML = vthvervigur.prenta();
+	document.getElementById("firstStefnuhorn").innerHTML = v1.stefnuhorn();
+
+	var stefnuhornFirstVigur = v1.stefnuhornCanvas();
 
 	var firstNumberX = v1.getX()*68;
 	var firstNumberY = v1.getY()*68; 
@@ -171,11 +220,15 @@ function drawVigurs(){
 	ctx.lineTo(endPointVigur[0]+.5, endPointVigur[1]);
 	ctx.fill();
 	
-	
+
+
 	var endPointHorn;
 	var v2 = new Vigur(secondVigurX, secondVigurY);
+	document.getElementById("secondCoordiantes").innerHTML = "[" + v2.getX() +  " " + v2.getY() + "]";
+	document.getElementById("hornMilliVigra").innerHTML = v2.horn(v1);
+	document.getElementById("summaMilliVigra").innerHTML = v1.summa(v2);
 
-	var stefnuhornSecondVigur = v2.stefnuhorn();
+	var stefnuhornSecondVigur = v2.stefnuhornCanvas();
 
 	var secondNumberX = v2.getX()*68;
 	var secondNumberY = v2.getY()*68;
