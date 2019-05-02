@@ -32,3 +32,18 @@ th{
 	padding: 10px;
 	border: 1px solid #ffffff;
 }
+#firstCoordinatesStyle{
+	color: rgb(84, 255, 0);
+}
+#secondCoordinatesStyle{
+	color: rgb(255, 0, 225);
+}
+#firstStefnuhornStyle{
+	background: rgb(255, 0, 0, 0.8);
+}
+#hornMilliVigraStyle{
+	background: rgb(0, 195, 255, 0.8);
+}
+#summaMilliVigraStyle{
+	color: #fffa00;
+}
